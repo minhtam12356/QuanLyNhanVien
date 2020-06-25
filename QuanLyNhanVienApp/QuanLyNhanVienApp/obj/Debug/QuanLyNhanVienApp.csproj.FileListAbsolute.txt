@@ -1,0 +1,9 @@
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\bin\Debug\QuanLyNhanVienApp.exe.config
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\bin\Debug\QuanLyNhanVienApp.exe
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\bin\Debug\QuanLyNhanVienApp.pdb
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\obj\Debug\QuanLyNhanVienApp.csprojResolveAssemblyReference.cache
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\obj\Debug\QuanLyNhanVienApp.Form1.resources
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\obj\Debug\QuanLyNhanVienApp.Properties.Resources.resources
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\obj\Debug\QuanLyNhanVienApp.csproj.GenerateResource.Cache
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\obj\Debug\QuanLyNhanVienApp.exe
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\obj\Debug\QuanLyNhanVienApp.pdb
