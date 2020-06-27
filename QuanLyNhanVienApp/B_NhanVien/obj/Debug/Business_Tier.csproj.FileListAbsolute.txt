@@ -1,0 +1,7 @@
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\B_NhanVien\bin\Debug\B_NhanVien.dll
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\B_NhanVien\bin\Debug\B_NhanVien.pdb
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\B_NhanVien\bin\Debug\D_NhanVien.dll
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\B_NhanVien\bin\Debug\D_NhanVien.pdb
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\B_NhanVien\obj\Debug\Business_Tier.csprojResolveAssemblyReference.cache
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\B_NhanVien\obj\Debug\B_NhanVien.dll
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\B_NhanVien\obj\Debug\B_NhanVien.pdb
