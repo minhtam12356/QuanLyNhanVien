@@ -7,3 +7,7 @@ C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\obj\Debu
 C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\obj\Debug\QuanLyNhanVienApp.csproj.GenerateResource.Cache
 C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\obj\Debug\QuanLyNhanVienApp.exe
 C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\obj\Debug\QuanLyNhanVienApp.pdb
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\bin\Debug\B_NhanVien.dll
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\bin\Debug\D_NhanVien.dll
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\bin\Debug\B_NhanVien.pdb
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\QuanLyNhanVienApp\bin\Debug\D_NhanVien.pdb
