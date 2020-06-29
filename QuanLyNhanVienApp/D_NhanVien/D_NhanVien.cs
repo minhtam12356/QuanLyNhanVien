@@ -5,29 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Data_Tier;
+
 
 namespace Data_Tier
 {
+    
     public class D_NhanVien
     {
-        public SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=QuanLyNhanVien;Integrated Security=True");
-        public DataSet getAllTable(string strTable)
+        QuanLyNhanVienDataContext db = new QuanLyNhanVienDataContext();
+        public dynamic getNV()
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM " + strTable, conn);
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(ds, strTable);
-            return ds;
-        }
-
-        public void updateData(DataTable dtTable, string strTableName)
-        {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM " + strTableName, conn);
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(ds, strTableName);
-            SqlCommandBuilder cb = new SqlCommandBuilder(da);
-            da.Update(dtTable);
+            var p = db.NhanViens.Select(s => new { s.MaNhanVien, s.HoTenNhanVien, s.GioiTinh, s.NgayThangNamSinh, ChucVu = s.ChucVu.TenChucVu, s.SoDienThoai }).ToList();
+            return p;
         }
     }
 }

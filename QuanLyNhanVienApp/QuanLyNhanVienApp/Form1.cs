@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business_Tier;
+using Data_Tier;
+
 
 namespace QuanLyNhanVienApp
 {
@@ -17,8 +19,8 @@ namespace QuanLyNhanVienApp
         {
             InitializeComponent();
         }
-        DataTable dtNhanVien;
-        B_NhanVien objNhanVien = new B_NhanVien();
+        QuanLyNhanVienDataContext db = new QuanLyNhanVienDataContext();
+        B_NhanVien busNV = new B_NhanVien();
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -27,26 +29,15 @@ namespace QuanLyNhanVienApp
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadComboBox();
-            NapDataGridview();
+            gbThongTin.Enabled = false;
+            busNV.layDSDonHang(dGVNhanVien);
         }
 
-        private void NapDataGridview()
-        {
-            dGVNhanVien.DataSource = objNhanVien.getTableNhanVien();
-            dGVNhanVien.Columns[0].Width = (int)(dGVNhanVien.Width * 0.15);
-            dGVNhanVien.Columns[1].Width = (int)(dGVNhanVien.Width * 0.21);
-            dGVNhanVien.Columns[2].Width = (int)(dGVNhanVien.Width * 0.1);
-            dGVNhanVien.Columns[3].Width = (int)(dGVNhanVien.Width * 0.2);
-            dGVNhanVien.Columns[4].Width = (int)(dGVNhanVien.Width * 0.18);
-            dGVNhanVien.Columns[5].Width = (int)(dGVNhanVien.Width * 0.1666666666666667);
-            
-        }
 
         private void LoadComboBox()
         {
-            cbChucVu.DataSource = objNhanVien.getTableNhanVien();
-            cbChucVu.DisplayMember = "ChucVu";
-            cbChucVu.ValueMember = "ChucVu";
+            busNV.getChucVu(cbChucVu);
+           
         }
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -59,14 +50,104 @@ namespace QuanLyNhanVienApp
                 e.Cancel = true;
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void cbChucVu_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void dGVNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            gbThongTin.Enabled = false;
+            int i = dGVNhanVien.CurrentRow.Index;
+            txtMaNhanVien.Text = dGVNhanVien.Rows[i].Cells[0].Value.ToString();
+            txtHoTen.Text = dGVNhanVien.Rows[i].Cells[1].Value.ToString();
+
+            if(dGVNhanVien.Rows[i].Cells[2].Value.ToString() == "True")
+                radNam.Checked = true;
+            else
+                radNu.Checked = true;
+
+            dateTimeNgaySinh.Text = dGVNhanVien.Rows[i].Cells[3].Value.ToString();
+            cbChucVu.Text = dGVNhanVien.Rows[i].Cells[4].Value.ToString();
+            txtSoDienThoai.Text = dGVNhanVien.Rows[i].Cells[5].Value.ToString();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            gbThongTin.Enabled = true;
+            txtMaNhanVien.Enabled = false;
+            txtHoTen.Text = "";
+            txtMaNhanVien.Text = "";
+            txtSoDienThoai.Text = "";
+            
+                
+        
+        
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            gbThongTin.Enabled = false;
+            txtMaNhanVien.Enabled = false;
+            NhanVien nv = new NhanVien();
+            nv.HoTenNhanVien = txtHoTen.Text;
+            nv.MaChucVu = cbChucVu.SelectedValue.ToString();
+
+            nv.NgayThangNamSinh = Convert.ToDateTime(dateTimeNgaySinh.Text);
+
+            if (radNu.Checked == true)
+            {
+                nv.GioiTinh = false;
+            }
+            else
+            {
+                nv.GioiTinh = true;
+            }
+
+            nv.SoDienThoai = txtSoDienThoai.Text;
+            busNV.themNV(nv);
+            busNV.layDSDonHang(dGVNhanVien);
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            gbThongTin.Enabled = true;
+            txtMaNhanVien.Enabled = false;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            gbThongTin.Enabled = false;
+            foreach (DataGridViewRow item in dGVNhanVien.SelectedRows)
+            {
+                busNV.xoaNV(int.Parse(item.Cells[0].Value.ToString()));
+
+            }
+            busNV.layDSDonHang(dGVNhanVien);
+        }
+
+        private void gbThongTin_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dGVNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            gbThongTin.Enabled = false;
+            int i = dGVNhanVien.CurrentRow.Index;
+            txtMaNhanVien.Text = dGVNhanVien.Rows[i].Cells[0].Value.ToString();
+            txtHoTen.Text = dGVNhanVien.Rows[i].Cells[1].Value.ToString();
+
+            if (dGVNhanVien.Rows[i].Cells[2].Value.ToString() == "True")
+                radNam.Checked = true;
+            else
+                radNu.Checked = true;
+
+            dateTimeNgaySinh.Text = dGVNhanVien.Rows[i].Cells[3].Value.ToString();
+            cbChucVu.Text = dGVNhanVien.Rows[i].Cells[4].Value.ToString();
+            txtSoDienThoai.Text = dGVNhanVien.Rows[i].Cells[5].Value.ToString();
         }
     }
 }

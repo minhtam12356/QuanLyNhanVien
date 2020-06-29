@@ -2,3 +2,5 @@ C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\D_NhanVien\bin\Debug\D_Nha
 C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\D_NhanVien\bin\Debug\D_NhanVien.pdb
 C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\D_NhanVien\obj\Debug\D_NhanVien.dll
 C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\D_NhanVien\obj\Debug\D_NhanVien.pdb
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\D_NhanVien\obj\Debug\Data_Tier.csprojResolveAssemblyReference.cache
+C:\Users\Ali\Desktop\QuanLyNhanVien\QuanLyNhanVienApp\D_NhanVien\bin\Debug\D_NhanVien.dll.config
