@@ -6,20 +6,41 @@ using System.Threading.Tasks;
 using System.Data;
 using Data_Tier;
 
+
+using System.Windows.Forms;
+
+
+
 namespace Business_Tier
 {
     public class B_NhanVien
     {
-        D_NhanVien objNhanVien = new D_NhanVien();
-        public DataTable getTableNhanVien()
+        D_NhanVien da = new D_NhanVien();
+        QuanLyNhanVienDataContext db = new QuanLyNhanVienDataContext();
+        public void layDSDonHang(DataGridView g)
         {
-            return objNhanVien.getAllTable("NhanVien").Tables["NhanVien"];
+            g.DataSource = da.getNV();
         }
-        public void CapNhatTable_NhanVien(DataTable tbNhanVien)
+        
+        public void getChucVu(ComboBox cb)
         {
-            objNhanVien.updateData(tbNhanVien, "NhanVien");
+            var p = db.ChucVus.Select(s => new { ID = s.TenChucVu, Name = s.MaChucVu});
+            cb.DataSource = p;
+            cb.DisplayMember = "ID";
+            cb.ValueMember = "Name";
         }
 
-        
+        public void themNV(NhanVien nv)
+        {
+            db.NhanViens.InsertOnSubmit(nv);
+            db.SubmitChanges();
+        }
+
+        public void xoaNV(int maNV)
+        {
+            var sp = db.NhanViens.Where(s => s.MaNhanVien == maNV).FirstOrDefault();
+            db.NhanViens.DeleteOnSubmit(sp);
+            db.SubmitChanges();
+        }
     }
 }

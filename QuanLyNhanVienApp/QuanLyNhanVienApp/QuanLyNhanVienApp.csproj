@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,6 +85,13 @@
       <Project>{184c6432-b829-4a82-8c9c-8ccbc1b41e75}</Project>
       <Name>Business_Tier</Name>
     </ProjectReference>
+    <ProjectReference Include="..\D_NhanVien\Data_Tier.csproj">
+      <Project>{a12ff29c-e62a-4d6c-adb3-a4c9a88254ae}</Project>
+      <Name>Data_Tier</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
