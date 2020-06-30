@@ -29,7 +29,6 @@ namespace QuanLyNhanVienApp
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadComboBox();
-            gbThongTin.Enabled = false;
             busNV.layDSDonHang(dGVNhanVien);
         }
 
@@ -59,37 +58,13 @@ namespace QuanLyNhanVienApp
 
         private void dGVNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            gbThongTin.Enabled = false;
-            int i = dGVNhanVien.CurrentRow.Index;
-            txtMaNhanVien.Text = dGVNhanVien.Rows[i].Cells[0].Value.ToString();
-            txtHoTen.Text = dGVNhanVien.Rows[i].Cells[1].Value.ToString();
-
-            if(dGVNhanVien.Rows[i].Cells[2].Value.ToString() == "True")
-                radNam.Checked = true;
-            else
-                radNu.Checked = true;
-
-            dateTimeNgaySinh.Text = dGVNhanVien.Rows[i].Cells[3].Value.ToString();
-            cbChucVu.Text = dGVNhanVien.Rows[i].Cells[4].Value.ToString();
-            txtSoDienThoai.Text = dGVNhanVien.Rows[i].Cells[5].Value.ToString();
+            
+           
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            gbThongTin.Enabled = true;
-            txtMaNhanVien.Enabled = false;
-            txtHoTen.Text = "";
-            txtMaNhanVien.Text = "";
-            txtSoDienThoai.Text = "";
             
-                
-        
-        
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            gbThongTin.Enabled = false;
             txtMaNhanVien.Enabled = false;
             NhanVien nv = new NhanVien();
             nv.HoTenNhanVien = txtHoTen.Text;
@@ -109,17 +84,43 @@ namespace QuanLyNhanVienApp
             nv.SoDienThoai = txtSoDienThoai.Text;
             busNV.themNV(nv);
             busNV.layDSDonHang(dGVNhanVien);
+
         }
+
+        
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            gbThongTin.Enabled = true;
             txtMaNhanVien.Enabled = false;
+            NhanVien nv = new NhanVien();
+            nv.HoTenNhanVien = txtHoTen.Text;
+            nv.MaChucVu = cbChucVu.SelectedValue.ToString();
+            nv.NgayThangNamSinh = Convert.ToDateTime(dateTimeNgaySinh.Text);
+            if (radNu.Checked == true)
+            {
+                nv.GioiTinh = false;
+            }
+            else
+            {
+                nv.GioiTinh = true;
+            }
+            nv.SoDienThoai = txtSoDienThoai.Text;
+          
+           
+
+            foreach (DataGridViewRow item in dGVNhanVien.SelectedRows)
+            {
+                busNV.suaNV(nv, int.Parse(item.Cells[0].Value.ToString()));
+            }
+            busNV.layDSDonHang(dGVNhanVien);
+
+            MessageBox.Show("Cập nhật sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            gbThongTin.Enabled = false;
+            
             foreach (DataGridViewRow item in dGVNhanVien.SelectedRows)
             {
                 busNV.xoaNV(int.Parse(item.Cells[0].Value.ToString()));
@@ -135,7 +136,7 @@ namespace QuanLyNhanVienApp
 
         private void dGVNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            gbThongTin.Enabled = false;
+            
             int i = dGVNhanVien.CurrentRow.Index;
             txtMaNhanVien.Text = dGVNhanVien.Rows[i].Cells[0].Value.ToString();
             txtHoTen.Text = dGVNhanVien.Rows[i].Cells[1].Value.ToString();
