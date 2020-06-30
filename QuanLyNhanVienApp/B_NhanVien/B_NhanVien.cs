@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Data;
-using Data_Tier;
 
 
 using System.Windows.Forms;
-
+using Data_Tier;
 
 
 namespace Business_Tier
@@ -40,6 +35,19 @@ namespace Business_Tier
         {
             var sp = db.NhanViens.Where(s => s.MaNhanVien == maNV).FirstOrDefault();
             db.NhanViens.DeleteOnSubmit(sp);
+            db.SubmitChanges();
+        }
+
+        public void suaNV(NhanVien nv, int MaNV)
+        {
+            NhanVien nhanvien = (from sp in db.NhanViens where sp.MaNhanVien == MaNV select sp).FirstOrDefault();
+            
+            nhanvien.HoTenNhanVien = nv.HoTenNhanVien;
+            nhanvien.GioiTinh = nv.GioiTinh;
+            nhanvien.NgayThangNamSinh = nv.NgayThangNamSinh;
+            nhanvien.MaChucVu = nv.MaChucVu;
+            nhanvien.SoDienThoai = nv.SoDienThoai;
+
             db.SubmitChanges();
         }
     }
