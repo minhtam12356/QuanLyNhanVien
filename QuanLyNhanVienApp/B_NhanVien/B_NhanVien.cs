@@ -7,7 +7,7 @@ using Data_Tier;
 namespace Business_Tier
 {
     public class B_NhanVien
-    {
+    { 
         D_NhanVien da = new D_NhanVien();
         QuanLyNhanVienDataContext db = new QuanLyNhanVienDataContext();
         public void layDSDonHang(DataGridView g)
