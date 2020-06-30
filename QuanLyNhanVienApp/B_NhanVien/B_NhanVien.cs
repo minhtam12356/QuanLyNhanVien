@@ -1,7 +1,5 @@
 ﻿using System.Linq;
 using System.Data;
-
-
 using System.Windows.Forms;
 using Data_Tier;
 
