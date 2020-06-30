@@ -21,6 +21,11 @@ namespace QuanLyNhanVienApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+            chk.Name = "chkProduct";
+            chk.HeaderText = "Chọn nhiều";
+
+            dGVNhanVien.Columns.Add(chk);
             LoadComboBox();
             busNV.layDSDonHang(dGVNhanVien);
 
@@ -108,19 +113,25 @@ namespace QuanLyNhanVienApp
             }
             busNV.layDSDonHang(dGVNhanVien);
 
-            MessageBox.Show("Cập nhật sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cập nhật nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            
-            foreach (DataGridViewRow item in dGVNhanVien.SelectedRows)
+            if (MessageBox.Show("Bạn có chắc chắn xoá nhân viên này không", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                busNV.xoaNV(int.Parse(item.Cells[0].Value.ToString()));
+                foreach (DataGridViewRow item in dGVNhanVien.Rows)
+                {
+                    if (Convert.ToBoolean(item.Cells[0].Value) == true)
+                    {
+                        busNV.xoaNV(int.Parse(item.Cells[1].Value.ToString()));
+                    }
 
+                }
+                busNV.layDSDonHang(dGVNhanVien);
             }
-            busNV.layDSDonHang(dGVNhanVien);
+            
         }
 
         private void gbThongTin_Enter(object sender, EventArgs e)
@@ -132,17 +143,17 @@ namespace QuanLyNhanVienApp
         {
             
             int i = dGVNhanVien.CurrentRow.Index;
-            txtMaNhanVien.Text = dGVNhanVien.Rows[i].Cells[0].Value.ToString();
-            txtHoTen.Text = dGVNhanVien.Rows[i].Cells[1].Value.ToString();
+            txtMaNhanVien.Text = dGVNhanVien.Rows[i].Cells[1].Value.ToString();
+            txtHoTen.Text = dGVNhanVien.Rows[i].Cells[2].Value.ToString();
 
-            if (dGVNhanVien.Rows[i].Cells[2].Value.ToString() == "True")
+            if (dGVNhanVien.Rows[i].Cells[3].Value.ToString() == "True")
                 radNam.Checked = true;
             else
                 radNu.Checked = true;
 
-            dateTimeNgaySinh.Text = dGVNhanVien.Rows[i].Cells[3].Value.ToString();
-            cbChucVu.Text = dGVNhanVien.Rows[i].Cells[4].Value.ToString();
-            txtSoDienThoai.Text = dGVNhanVien.Rows[i].Cells[5].Value.ToString();
+            dateTimeNgaySinh.Text = dGVNhanVien.Rows[i].Cells[4].Value.ToString();
+            cbChucVu.Text = dGVNhanVien.Rows[i].Cells[5].Value.ToString();
+            txtSoDienThoai.Text = dGVNhanVien.Rows[i].Cells[6].Value.ToString();
         }
     }
 }
