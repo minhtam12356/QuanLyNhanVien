@@ -7,8 +7,8 @@
     <ProjectGuid>{184C6432-B829-4A82-8C9C-8CCBC1B41E75}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>B_NhanVien</RootNamespace>
-    <AssemblyName>B_NhanVien</AssemblyName>
+    <RootNamespace>Business_Tier</RootNamespace>
+    <AssemblyName>Business_Tier</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
